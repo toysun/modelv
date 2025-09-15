@@ -95,19 +95,19 @@
             ],
             jupiter: [
                 { id: 'jupiter_globe', name: '목성', thumbnail: './images/jupiter-planet.png', path: 'jupiter-planet', scale: '0.5 0.5 0.5' },
-                { id: 'space_station', name: '우주정거장', thumbnail: './images/mars-base.png', path: 'jupiter-base', scale: '0.2 0.2 0.2' },
+                { id: 'space_station', name: '우주정거장', thumbnail: './images/mars-base.png', path: 'jupiter-base', scale: '0.5 0.5 0.5' },
             ],
             saturn: [
                 { id: 'saturn_globe', name: '토성', thumbnail: './images/saturn-planet.png', path: 'saturn-planet', scale: '0.5 0.5 0.5' },
-                { id: 'space_station', name: '우주정거장', thumbnail: './images/saturn-base.png', path: 'saturn-base', scale: '0.2 0.2 0.2' },
+                { id: 'space_station', name: '우주정거장', thumbnail: './images/saturn-base.png', path: 'saturn-base', scale: '0.5 0.5 0.5' },
             ],
             uranus: [
                 { id: 'uranus_globe', name: '천왕성', thumbnail: './images/uranus-planet.png', path: 'uranus-planet', scale: '0.5 0.5 0.5' },
-                { id: 'space_station', name: '우주정거장', thumbnail: './images/uranus-base.png', path: 'uranus-base', scale: '0.2 0.2 0.2' },
+                { id: 'space_station', name: '우주정거장', thumbnail: './images/uranus-base.png', path: 'uranus-base', scale: '0.5 0.5 0.5' },
             ],
             neptune: [
                 { id: 'neptune_globe', name: '해왕성', thumbnail: './images/neptune-planet.png', path: 'neptune-planet', scale: '0.5 0.5 0.5' },
-                { id: 'space_station', name: '우주정거장', thumbnail: './images/neptune-base.png', path: 'neptune-base', scale: '0.2 0.2 0.2' },
+                { id: 'space_station', name: '우주정거장', thumbnail: './images/neptune-base.png', path: 'neptune-base', scale: '0.5 0.5 0.5' },
             ],
             // ... 다른 행성들의 모델 목록도 동일하게 정의 ...
         };
@@ -131,25 +131,21 @@
 
             modelViewer.src = "./models/" + models[0].path + ".glb";
             modelViewer.iosSrc = "./models/" + models[0].path + ".usdz";
-            modelViewer.setAttribute('scale', models[0].scale);
             
             const FirstPath = models[0].path;
-            const FirstScale = models[0].scale; 
             FirstBtn.style.backgroundImage = `url('${models[0].thumbnail}')`;
-            FirstBtn.setAttribute("onClick", `switchSrc(this, '${FirstPath}', '${FirstScale}')`);
+            FirstBtn.setAttribute("onClick", `switchSrc(this, '${FirstPath}')`);
 
             const SecondPath = models[1].path;
-            const SecondScale = models[1].scale; 
             SecondBtn.style.backgroundImage = `url('${models[1].thumbnail}')`;
-            SecondBtn.setAttribute("onClick", `switchSrc(this, '${SecondPath}', '${SecondScale}')`);
+            SecondBtn.setAttribute("onClick", `switchSrc(this, '${SecondPath}')`);
         }   
 
-        window.switchSrc = (element, name, Scale) => {
+        window.switchSrc = (element, name) => {
         const base = "./models/" + name;
         const ImgBase = "./images/" + name;
         modelViewer.src = base + ".glb";
         modelViewer.iosSrc = base + ".usdz";
-        modelViewer.setAttribute('scale', Scale);
         modelViewer.poster = ImgBase + ".png";
         const slides = document.querySelectorAll(".slide");
         slides.forEach((element) => {
@@ -181,7 +177,4 @@
     <link rel="stylesheet" href="./css/joayong-photo.css" />
 
   </body>
-
 </html>
-
-
