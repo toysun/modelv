@@ -139,7 +139,7 @@
 
             const SecondPath = models[1].path;
             SecondBtn.style.backgroundImage = `url('${models[1].thumbnail}')`;
-            SecondBtn.setAttribute("onClick", `switchSrc(this, '${SecondPath}', models[1].scale))`);
+            SecondBtn.setAttribute("onClick", `switchSrc(this, '${SecondPath}', models[1].scale)`);
         }   
 
         window.switchSrc = (element, name, iscale) => {
@@ -181,3 +181,4 @@
   </body>
 
 </html>
+
