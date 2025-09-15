@@ -131,21 +131,23 @@
 
             modelViewer.src = "./models/" + models[0].path + ".glb";
             modelViewer.iosSrc = "./models/" + models[0].path + ".usdz";
+            modelViewer.setAttribute('scale', models[0].scale);
             
             const FirstPath = models[0].path;
             FirstBtn.style.backgroundImage = `url('${models[0].thumbnail}')`;
-            FirstBtn.setAttribute("onClick", `switchSrc(this, '${FirstPath}')`);
+            FirstBtn.setAttribute("onClick", `switchSrc(this, '${FirstPath}', models[0].scale)`);
 
             const SecondPath = models[1].path;
             SecondBtn.style.backgroundImage = `url('${models[1].thumbnail}')`;
-            SecondBtn.setAttribute("onClick", `switchSrc(this, '${SecondPath}')`);
+            SecondBtn.setAttribute("onClick", `switchSrc(this, '${SecondPath}', models[1].scale))`);
         }   
 
-        window.switchSrc = (element, name) => {
+        window.switchSrc = (element, name, iscale) => {
         const base = "./models/" + name;
         const ImgBase = "./images/" + name;
         modelViewer.src = base + ".glb";
         modelViewer.iosSrc = base + ".usdz";
+        modelViewer.setAttribute('scale', iscale);
         modelViewer.poster = ImgBase + ".png";
         const slides = document.querySelectorAll(".slide");
         slides.forEach((element) => {
@@ -177,4 +179,5 @@
     <link rel="stylesheet" href="./css/joayong-photo.css" />
 
   </body>
+
 </html>
